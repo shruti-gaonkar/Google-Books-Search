@@ -1,3 +1,4 @@
+require("dotenv").config();
 const axios = require("axios");
 
 module.exports = {
@@ -6,8 +7,9 @@ module.exports = {
     },
 
     getGoogleBooks: (req, res) => {
+        console.log(process.env.GOOGLE_BOOKS_API_KEY);
         axios
-            .get("https://www.googleapis.com/books/v1/volumes?q=Harry+Potter&key=AIzaSyAcEm_v2o-ZJQuv-P0a2DRSX4qsQWn287U&maxResults=40", { params: req.query })
+            .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.GOOGLE_BOOKS_API_KEY + "&maxResults=40", { params: req.query })
             .then(response => res.json(response.data))
             .catch(err => res.status(422).json(err));
     }
