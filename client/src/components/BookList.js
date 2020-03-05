@@ -1,15 +1,23 @@
 import React from "react";
 import { Card, CardTitle, Button } from 'react-materialize';
 
-function BookListContainer({ title,
-    authors,
-    description,
-    imageLinks,
-    link }) {
+function BookList(props) {
+    const { title, authors, description, imageLinks, link, handleBookSaveSubmit } = props;
     return (
         <Card className="blue-grey darken-2 white-text"
             actions={[
-                <a key={title} href={link}>{title}</a>
+                <a key={title} href={link}>{title}</a>,
+                <Button 
+                id={title}
+                className="green"
+                node="button" 
+                style={{ marginRight: '5px' }} 
+                waves="light" 
+                data-book={props} 
+                onClick={handleBookSaveSubmit}
+                >
+                    Save
+                </Button>
             ]}
             header={<CardTitle image={imageLinks === undefined
                 ? ""
@@ -21,4 +29,4 @@ function BookListContainer({ title,
     );
 }
 
-export default BookListContainer;
+export default BookList;

@@ -7,7 +7,6 @@ module.exports = {
     },
 
     getGoogleBooks: (req, res) => {
-        console.log(process.env.GOOGLE_BOOKS_API_KEY);
         axios
             .get("https://www.googleapis.com/books/v1/volumes?key=" + process.env.GOOGLE_BOOKS_API_KEY + "&maxResults=40", { params: req.query })
             .then(response => res.json(response.data))

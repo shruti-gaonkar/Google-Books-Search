@@ -34,6 +34,11 @@ class Books extends Component {
         this.loadBooks();
     };
 
+    handleBookSaveSubmit = event => {
+        const bookData = event.target.attributes.getNamedItem('data-book').value;
+        API.saveBook(bookData);
+    };
+
     render() {
         return (
             <>
@@ -82,6 +87,7 @@ class Books extends Component {
                                                 description={book.volumeInfo.description}
                                                 imageLinks={book.volumeInfo.imageLinks}
                                                 link={book.volumeInfo.previewLink}
+                                                handleBookSaveSubmit={this.handleBookSaveSubmit}
                                             />
                                         );
                                     })

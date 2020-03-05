@@ -1,5 +1,6 @@
 const express = require('express'),
     morgan = require('morgan'),
+    mongoose = require('mongoose'),
     path = require('path'),
     router = require('./routes');
 
@@ -17,6 +18,11 @@ app.use(morgan('dev'));
 
 // Import the routing setup from our Router 
 app.use('/', router);
+
+// Connect to the Mongo DB
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/booklist"
+);
 
 //Serving react on routes unused by previous routing
 app.get('*', (req, res) => {
