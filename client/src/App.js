@@ -1,5 +1,5 @@
 import React from 'react';
-import Books from './components/pages/Books';
+import Books from './pages/Books';
 import { Navbar, Icon, NavItem } from 'react-materialize';
 //import './App.css';
 
