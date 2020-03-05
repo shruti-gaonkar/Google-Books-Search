@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Books from './components/pages/Books';
+import { Navbar, Icon, NavItem } from 'react-materialize';
+//import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <><Navbar className="grey darken-2"
+      alignLinks="right"
+      brand={<a className="brand-logo" href="#">Google Books</a>}
+      menuIcon={<Icon>menu</Icon>}
+      options={{
+        draggable: true,
+        edge: 'left',
+        inDuration: 250,
+        onCloseEnd: null,
+        onCloseStart: null,
+        onOpenEnd: null,
+        onOpenStart: null,
+        outDuration: 200,
+        preventScrolling: true
+      }}>
+      <NavItem href="">
+        Search
+      </NavItem>
+      <NavItem href="components.html">
+        Saved
+      </NavItem>
+    </Navbar>
+      <Books />
+    </>
+  );
 }
 
 export default App;
