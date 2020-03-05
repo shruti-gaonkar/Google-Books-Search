@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, CardTitle } from 'react-materialize';
+import { Card, CardTitle, Button } from 'react-materialize';
 
 function BookListContainer({ title,
     authors,
@@ -7,13 +7,14 @@ function BookListContainer({ title,
     imageLinks,
     link }) {
     return (
-        <Card
+        <Card className="blue-grey darken-2 white-text"
             actions={[
                 <a key={title} href={link}>{title}</a>
             ]}
-            closeIcon={<Icon>close</Icon>}
-            header={<CardTitle image={imageLinks}>{title}</CardTitle>}
-            revealIcon={<Icon>more_vert</Icon>}
+            header={<CardTitle image={imageLinks === undefined
+                ? ""
+                : `${imageLinks.smallThumbnail}`} className="cardImg" />}
+            horizontal
         >
             {description}
         </Card>

@@ -11,7 +11,11 @@ class Books extends Component {
 
     loadBooks = () => {
         API.getGoogleBooks(this.state.bookSearch)
-            .then(res => this.setState({ books: res.data.items }))
+            .then(res => {
+                console.log(res.data.items);
+                this.setState({ books: res.data.items })
+            })
+
             .catch(err => console.log(err));
     }
 
