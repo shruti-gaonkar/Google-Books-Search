@@ -7,14 +7,14 @@ function BookList(props) {
         <Card className="blue-grey darken-2 white-text"
             actions={[
                 <a key={title} href={link}>{title}</a>,
-                <Button 
-                id={title}
-                className="green"
-                node="button" 
-                style={{ marginRight: '5px' }} 
-                waves="light" 
-                data-book={props} 
-                onClick={handleBookSaveSubmit}
+                <Button
+                    id={title}
+                    className="green"
+                    node="button"
+                    style={{ marginRight: '5px' }}
+                    waves="light"
+                    data-book={props}
+                    onClick={handleBookSaveSubmit}
                 >
                     Save
                 </Button>
@@ -25,6 +25,14 @@ function BookList(props) {
             horizontal
         >
             {description}
+
+            {
+                (authors == undefined) ? "" :
+                    authors.map(val => {
+                        return (<p><i>{val}</i></p>)
+                    })
+            }
+
         </Card>
     );
 }
