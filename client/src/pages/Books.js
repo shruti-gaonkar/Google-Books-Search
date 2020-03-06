@@ -9,6 +9,9 @@ class Books extends Component {
         bookSearch: ''
     };
 
+    componentDidMount() {
+    }
+
     loadBooks = () => {
         API.getGoogleBooks(this.state.bookSearch)
             .then(res => {
@@ -35,8 +38,17 @@ class Books extends Component {
     };
 
     handleBookSaveSubmit = event => {
-        const bookData = event.target.attributes.getNamedItem('data-book').value;
-        API.saveBook(bookData);
+        const attr = event.target.attributes;
+        const bookData = {
+            title: attr.getNamedItem('title').value,
+            authors: attr.getNamedItem('authors').value,
+            description: attr.getNamedItem('description').value,
+            image: attr.getNamedItem('image').value,
+            link: attr.getNamedItem('link').value
+        }
+        API.saveBook(bookData).then(function () {
+            document.getElementById("card_" + bookData.title).remove();
+        });
     };
 
     render() {
@@ -85,7 +97,7 @@ class Books extends Component {
                                                 title={book.volumeInfo.title}
                                                 authors={book.volumeInfo.authors}
                                                 description={book.volumeInfo.description}
-                                                imageLinks={book.volumeInfo.imageLinks}
+                                                image={book.volumeInfo.imageLinks}
                                                 link={book.volumeInfo.previewLink}
                                                 handleBookSaveSubmit={this.handleBookSaveSubmit}
                                             />
