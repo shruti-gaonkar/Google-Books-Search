@@ -18,7 +18,7 @@ function BookList(props) {
                     description={description}
                     image={image}
                     link={link}
-                    onClick={handleBookSaveSubmit}
+                    onClick={() => handleBookSaveSubmit()}
                 >
                     Save
                 </Button>
