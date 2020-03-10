@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col } from 'react-materialize';
+import { Row, Col, CardPanel } from 'react-materialize';
 import API from "../utils/API";
 import "../App.css";
 import BookList from "../components/BookList";
@@ -31,6 +31,16 @@ class Books extends Component {
     render() {
         return (
             <>
+                <Row>
+                    <Col m={12}>
+                        <CardPanel className="grey lighten-2">
+                            <h2 className="black-text center-align">
+                                (React) Google Books Search
+                        </h2>
+                            <h4 className="black-text center-align">View/Delete Books</h4>
+                        </CardPanel>
+                    </Col>
+                </Row>
                 <Row>
                     <Col m={12}>
                         {
