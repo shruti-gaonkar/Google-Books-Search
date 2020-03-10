@@ -15,7 +15,7 @@ function BookList(props) {
     return (
         <Card id={cardId} key={title} className="blue-grey darken-2 white-text"
             actions={[
-                <div className="left"><a key={index} href={link}>{title}</a></div>,
+                <div className="left"><a key={index} target="_blank" href={link}>{title}</a></div>,
                 <div className="right">
                     {(saved == "1") ?
                         (< Button
