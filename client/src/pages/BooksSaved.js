@@ -15,6 +15,7 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
+                console.log(res.data);
                 this.setState({ books: res.data })
             })
 
@@ -43,7 +44,7 @@ class Books extends Component {
                                                 title={book.title}
                                                 authors={book.authors}
                                                 description={book.description}
-                                                image={book.imageLinks}
+                                                image={book.image_link}
                                                 link={book.previewLink}
                                                 handleBookSaveSubmit={this.handleBookSaveSubmit}
                                             />

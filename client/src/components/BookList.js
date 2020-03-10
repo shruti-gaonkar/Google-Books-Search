@@ -7,7 +7,7 @@ function BookList(props) {
         title: title,
         authors: authors,
         description: description,
-        image: image,
+        image_link: image,
         link: link
     }
 
@@ -29,7 +29,7 @@ function BookList(props) {
             ]}
             header={<CardTitle image={image === undefined
                 ? ""
-                : `${image.smallThumbnail} `} className="cardImg" />}
+                : `${image} `} className="cardImg" />}
             horizontal
         >
             {description}
