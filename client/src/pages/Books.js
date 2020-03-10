@@ -39,15 +39,6 @@ class Books extends Component {
     };
 
     handleBookSaveSubmit = (index, bookData) => {
-        /*const attr = event.target.attributes;
-        const bookData = {
-            title: attr.getNamedItem('title').value,
-            authors: attr.getNamedItem('authors').value,
-            description: attr.getNamedItem('description').value,
-            image: attr.getNamedItem('image').value,
-            link: attr.getNamedItem('link').value
-        }*/
-        //console.log(bookData);
         API.saveBook(bookData).then(function () {
             document.getElementById(index).remove();
         });

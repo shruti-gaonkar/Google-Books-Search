@@ -22,11 +22,6 @@ function BookList(props) {
                     node="button"
                     style={{ marginRight: '5px' }}
                     waves="light"
-                    title={title}
-                    authors={authors}
-                    description={description}
-                    image={image}
-                    link={link}
                     onClick={() => handleBookSaveSubmit(cardId, bookData)}
                 >
                     Save
