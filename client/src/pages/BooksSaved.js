@@ -21,17 +21,17 @@ class Books extends Component {
             .catch(err => console.log(err));
     }
 
-    handleBookSaveSubmit = event => {
-        const attr = event.target.attributes;
+    handleBookSaveSubmit = (index, bookData) => {
+        /*const attr = event.target.attributes;
         const bookData = {
             title: attr.getNamedItem('title').value,
             authors: attr.getNamedItem('authors').value,
             description: attr.getNamedItem('description').value,
             image: attr.getNamedItem('image').value,
             link: attr.getNamedItem('link').value
-        }
+        }*/
         API.saveBook(bookData).then(function () {
-            document.getElementById("card_" + bookData.title).remove();
+            document.getElementById(index).remove();
         });
     };
 
@@ -44,9 +44,10 @@ class Books extends Component {
                             !this.state.books.length ? (
                                 <h1 className="text-center">No Books to Display</h1>
                             ) : (
-                                    this.state.books.map(book => {
+                                    this.state.books.map((book, i) => {
                                         return (
                                             <BookList
+                                                index={i}
                                                 title={book.title}
                                                 authors={book.authors}
                                                 description={book.description}

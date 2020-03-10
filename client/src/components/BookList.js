@@ -2,11 +2,20 @@ import React from "react";
 import { Card, CardTitle, Button } from 'react-materialize';
 
 function BookList(props) {
-    const { title, authors, description, image, link, handleBookSaveSubmit } = props;
+    const { index, title, authors, description, image, link, handleBookSaveSubmit } = props;
+    const bookData = {
+        title: title,
+        authors: authors,
+        description: description,
+        image: image,
+        link: link
+    }
+
+    const cardId = `card_${index}`;
     return (
-        <Card id={`card_${title}`} key={title} className="blue-grey darken-2 white-text"
+        <Card id={cardId} key={title} className="blue-grey darken-2 white-text"
             actions={[
-                <a key={title} href={link}>{title}</a>,
+                <a key={index} href={link}>{title}</a>,
                 <Button
                     id={title}
                     className="green"
@@ -18,7 +27,7 @@ function BookList(props) {
                     description={description}
                     image={image}
                     link={link}
-                    onClick={() => handleBookSaveSubmit()}
+                    onClick={() => handleBookSaveSubmit(cardId, bookData)}
                 >
                     Save
                 </Button>
