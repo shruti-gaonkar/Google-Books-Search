@@ -22,8 +22,8 @@ class Books extends Component {
             .catch(err => console.log(err));
     }
 
-    handleBookSaveSubmit = (index, bookData) => {
-        API.saveBook(bookData).then(function () {
+    handleBookDelete = (index, _id) => {
+        API.deleteBook(_id).then(function () {
             document.getElementById(index).remove();
         });
     };
@@ -45,8 +45,10 @@ class Books extends Component {
                                                 authors={book.authors}
                                                 description={book.description}
                                                 image={book.image_link}
-                                                link={book.previewLink}
-                                                handleBookSaveSubmit={this.handleBookSaveSubmit}
+                                                link={book.link}
+                                                handleBookSaveSubmit=''
+                                                saved="1"
+                                                handleBookDelete={this.handleBookDelete}
                                             />
                                         );
                                     })
