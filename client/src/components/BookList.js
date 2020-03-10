@@ -15,29 +15,31 @@ function BookList(props) {
     return (
         <Card id={cardId} key={title} className="blue-grey darken-2 white-text"
             actions={[
-                <a key={index} href={link}>{title}</a>,
-                (saved == "1") ?
-                    (< Button
-                        id={title}
-                        className="red"
-                        node="button"
-                        style={{ marginRight: '5px' }}
-                        waves="light"
-                        onClick={() => handleBookDelete(cardId, index)}
-                    >
-                        Delete
+                <div className="left"><a key={index} href={link}>{title}</a></div>,
+                <div className="right">
+                    {(saved == "1") ?
+                        (< Button
+                            id={title}
+                            className="red"
+                            node="button"
+                            style={{ marginRight: '5px' }}
+                            waves="light"
+                            onClick={() => handleBookDelete(cardId, index)}
+                        >
+                            Delete
                     </Button>)
-                    :
-                    (< Button
-                        id={title}
-                        className="green"
-                        node="button"
-                        style={{ marginRight: '5px' }}
-                        waves="light"
-                        onClick={() => handleBookSaveSubmit(cardId, bookData)}
-                    >
-                        Save
-                    </Button>)
+                        :
+                        (< Button
+                            id={title}
+                            className="green"
+                            node="button"
+                            style={{ marginRight: '5px' }}
+                            waves="light"
+                            onClick={() => handleBookSaveSubmit(cardId, bookData)}
+                        >
+                            Save
+                    </Button>)}
+                </div>
             ]}
             header={< CardTitle image={image === undefined
                 ? ""
