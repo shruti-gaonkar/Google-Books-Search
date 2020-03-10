@@ -1,23 +1,48 @@
-# Node-React-Startup-Structure
-A file structure for developing a Node and React app.
+# Google Books Search
 
-The [Client Folder](/client) contains a basic create-react-app starter file.
+### Technologies
+Node, Express, React, MongoDB. It follows a MVC design pattern; Node and MongoDB to query and route data in the app, and React to generate the HTML.
 
-The [Server Folder](server) contains a basic MVC folder structure for creating an api using Node and Express.
+NPM packages used:
+   1. express
 
-## Commands that can be run from this root folder:
+   2. react
 
-`npm install` - Installs all packages specified in the package.json file for both the client and server.
+   3. mongoose
 
-`npm run start` - checks if the environment variable 'NODE_ENV' is set to production, and runs either the development version or the production version of the project accordingly.
+   4. react-materialize
 
-`npm run start:dev` - Runs the development version of the project.
+   5. react-router-dom
 
-`npm run start:prod` - Runs the production version of the project.
+   6. axios
 
-`npm run build` - Runs build in the client folder.
+CSS Framework - React Materialize   
 
-`npm run client` - Runs the client side code.
+### Description
+React-based Google Books Search app
 
-`npm run server` - Runs the server side code.
+* Link: 
+     * Site Link: https://shruti-gaonkar.github.io/clicky-game/
+     * Github Link: https://github.com/shruti-gaonkar/google-books-search
 
+     ![Google Book Search!](client/public/screen.png) 
+
+* The application displays books based on user searches and allows users to save books to review or purchase later. By default the app displays novels and the search is limited to 40 records.
+
+* This application shows :
+
+  * Search - User can search for books via the Google Books API and render them here. User has the option to view a book by clicking on the title, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
+
+  * Saved - Renders all books saved to the Mongo database. User has an option to view the book by clicking on the title, bringing them to the book on Google Books, or "Delete" a book, removing it from the Mongo database. 
+
+* The book shows each of the following fields:
+
+* `title` - Title of the book from the Google Books API
+
+* `authors` - The books's author(s) as returned from the Google Books API
+
+* `description` - The book's description as returned from the Google Books API
+
+* `image` - The Book's thumbnail image as returned from the Google Books API
+
+* `link` - The Book's information link as returned from the Google Books API
