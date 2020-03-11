@@ -3,6 +3,10 @@ import { Row, Col, CardPanel, TextInput, Card, Icon, Button } from 'react-materi
 import API from "../utils/API";
 import "../App.css";
 import BookList from "../components/BookList";
+//import io from 'socket.io-client';
+
+//const socket = io();
+
 class Books extends Component {
     state = {
         books: [],
@@ -40,6 +44,10 @@ class Books extends Component {
 
     handleBookSaveSubmit = (index, bookData) => {
         API.saveBook(bookData).then(function () {
+            /*socket.on('connect', () => {
+                console.log(socket.connected); // true
+            });
+            socket.emit('hello', 'world');*/
             document.getElementById(index).remove();
         });
     };

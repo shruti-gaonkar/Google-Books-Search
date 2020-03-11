@@ -22,7 +22,7 @@ CSS Framework - React Materialize
 React-based Google Books Search app
 
 * Link: 
-     * Site Link: https://shruti-gaonkar.github.io/clicky-game/
+     * Site Link: https://infinite-escarpment-63304.herokuapp.com/
      * Github Link: https://github.com/shruti-gaonkar/google-books-search
 
      ![Google Book Search!](client/public/screen.png) 
